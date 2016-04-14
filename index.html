@@ -12,20 +12,14 @@
   <body>
     <div id="content"></div>
     <script type="text/babel">
-		var hoge = function render() {
-			return (
-				<div className="commentBox">
-					Hello, world! I am a CommentBox.
-				</div>
-			)；
-		}；
-		hoge();
 		// tutorial1.js
 		var CommentBox = React.createClass({
 		  render: function() {
 			return (
 			  <div className="commentBox">
-				Hello, world! I am a CommentBox.
+				<h1>Comments</h1>
+				<CommentList />
+				<CommentForm />
 			  </div>
 			);
 		  }
@@ -34,7 +28,7 @@
 		  <CommentBox />,
 		  document.getElementById('content')
 		);
-				// tutorial2.js
+		// tutorial2.js
 		var CommentList = React.createClass({
 		  render: function() {
 			return (
@@ -50,6 +44,19 @@
 			return (
 			  <div className="commentForm">
 				Hello, world! I am a CommentForm.
+			  </div>
+			);
+		  }
+		});
+		// tutorial4.js
+		var Comment = React.createClass({
+		  render: function() {
+			return (
+			  <div className="comment">
+				<h2 className="commentAuthor">
+				  {this.props.author}
+				</h2>
+				{this.props.children}
 			  </div>
 			);
 		  }
